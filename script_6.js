@@ -1,23 +1,22 @@
 function traduireARN(arn) {
   let codons = arn.match(/.{1,3}/g);
-  let proteine = codons.map(codon => {
-    switch (codon) {
-      case "UCU": case "UCC": case "UCA": case "UCG": case "AGU": case "AGC":
-        return "Sérine";
-      case "CCU": case "CCC": case "CCA": case "CCG":
-        return "Proline";
-      case "UUA": case "UUG":
-        return "Leucine";
-      case "UUU": case "UUC":
-        return "Phénylalanine";
-      case "CGU": case "CGC": case "CGA": case "CGG": case "AGA": case "AGG":
-        return "Arginine";
-      case "UAU": case "UAC":
-        return "Tyrosine";
-      default:
-        return "";
-    }
-  });
+  let proteine = [];
+
+  for (let codon of codons) {
+    if (["UCU","UCC","UCA","UCG","AGU","AGC"].includes(codon))
+      proteine.push("Sérine");
+    else if (["CCU","CCC","CCA","CCG"].includes(codon))
+      proteine.push("Proline");
+    else if (["UUA","UUG"].includes(codon))
+      proteine.push("Leucine");
+    else if (["UUU","UUC"].includes(codon))
+      proteine.push("Phénylalanine");
+    else if (["CGU","CGC","CGA","CGG","AGA","AGG"].includes(codon))
+      proteine.push("Arginine");
+    else if (["UAU","UAC"].includes(codon))
+      proteine.push("Tyrosine");
+  }
+
   return proteine.join("-");
 }
 

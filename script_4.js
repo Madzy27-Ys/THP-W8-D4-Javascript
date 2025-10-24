@@ -19,18 +19,18 @@ const entrepreneurs = [
   { first: 'Peter', last: 'Thiel', year: 1967 }
 ];
 
-// 1. Nés dans les années 70
+// Nés dans les années 70
 console.log("Entrepreneurs nés dans les années 70 :");
 console.log(entrepreneurs.filter(e => e.year >= 1970 && e.year < 1980));
 
-// 2. Prénom + nom
+// Prénom + nom
 console.log("Liste prénom + nom :");
 console.log(entrepreneurs.map(e => `${e.first} ${e.last}`));
 
-// 3. Âge aujourd’hui
+// Âge aujourd’hui
 console.log("Âge qu'ils auraient aujourd'hui :");
 console.log(entrepreneurs.map(e => `${e.first} ${e.last} a ${2025 - e.year} ans`));
 
-// 4. Tri alphabétique par nom
+// Tri alphabétique par nom
 console.log("Triés par nom de famille :");
 console.log(entrepreneurs.sort((a, b) => a.last.localeCompare(b.last)));
